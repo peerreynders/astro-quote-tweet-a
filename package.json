@@ -1,0 +1,41 @@
+{
+  "name": "@example/minimal",
+  "description": "DIY tweet cache with Astro",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "lint:types": "tsc -p ./tsconfig.lint.json",
+    "lint:es": "eslint ./src",
+    "format": "prettier --write ./src",
+    "scripts:build": "node ./esb-script.mjs fetchById && node ./esb-script.mjs harvest",
+    "scripts:types": "tsc -p ./tsconfig.scripts.json",
+    "fetchById": "node ./src/data/tweets/fetchById.mjs",
+    "harvest": "node ./src/data/tweets/harvest.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peerreynders/astro-quote-tweet-a.git"
+  },
+  "keywords": [],
+  "author": "Peer Reynders",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/peerreynders/astro-quote-tweet-a/issues"
+  },
+  "homepage": "https://github.com/peerreynders/astro-quote-tweet-a#readme",
+  "devDependencies": {
+    "@types/node": "^17.0.41",
+    "@typescript-eslint/eslint-plugin": "^5.27.1",
+    "@typescript-eslint/parser": "^5.27.1",
+    "astro": "^1.0.0-beta.42",
+    "eslint": "^8.17.0",
+    "eslint-config-prettier": "^8.5.0",
+    "postcss-scss": "^4.0.4",
+    "prettier": "^2.6.2",
+    "sass": "^1.52.2"
+  }
+}

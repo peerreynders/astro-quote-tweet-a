@@ -1,0 +1,158 @@
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  Helvetica, Arial, sans-serif;
+
+$color-dark: rgb(15, 20, 25);
+$color-mid-dark: rgb(83, 100, 113);
+$color-stroke: rgb(207, 217, 222);
+$color-action-blue: rgb(0, 111, 214);
+$color-action-green: rgb(0, 186, 124);
+$color-action-red: rgb(244, 33, 46);
+$color-twitter-blue: rgb(29, 155, 240);
+
+$size-1: 0.9375rem;
+$size1: 1.25rem;
+
+$link-decoration: underline dotted;
+
+@mixin flex-cross-center {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+}
+
+@mixin flex-cross-stretch {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: stretch;
+}
+
+@mixin quote-tweet-action {
+  @include flex-cross-center;
+  margin-right: 20px;
+}
+
+.quote-tweet {
+  min-width: 250px;
+  max-width: 550px;
+  border: 1px solid $color-stroke;
+  border-radius: 12px;
+  font-family: $font-family-sans-serif;
+}
+
+.quote-tweet__body {
+  padding: 12px 16px 4px;
+
+  &:last-child {
+    padding-bottom: 12px;
+  }
+}
+
+.quote-tweet__header {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  padding-bottom: 12px;
+}
+
+.quote-tweet__user {
+  @include flex-cross-stretch;
+  text-decoration: none;
+  font-size: $size-1;
+
+  & img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+  }
+}
+
+.quote-tweet__monikers {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.quote-tweet__name {
+  color: $color-dark;
+  font-weight: bold;
+}
+
+.quote-tweet__usertag {
+  color: $color-mid-dark;
+  text-decoration: $link-decoration;
+}
+
+.quote-tweet__larrytbird {
+  width: 25px;
+  margin-left: auto;
+}
+
+.quote-tweet__larrytbird svg {
+  color: $color-twitter-blue;
+  fill: currentcolor;
+}
+
+.quote-tweet__text {
+  font-size: $size1;
+}
+
+.quote-tweet__media {
+  margin-top: 12px;
+  overflow: hidden;
+  border: 1px solid $color-stroke;
+  border-radius: 12px;
+}
+
+.quote-tweet__datetime {
+  @include flex-cross-center;
+  margin-top: 2px;
+  font-size: $size-1;
+  min-height: 2rem;
+
+  & a {
+    color: $color-mid-dark;
+    text-decoration: $link-decoration;
+  }
+}
+
+.quote-tweet__actions {
+  margin-top: 4px;
+  border-width: 1px 0 0;
+  border-style: solid;
+  border-color: $color-stroke;
+  padding-top: 4px;
+  display: flex;
+  font-size: $size-1;
+  text-decoration: link-decoration;
+
+  & svg {
+    height: 1.25rem;
+    fill: currentcolor;
+  }
+}
+
+.quote-tweet__action-icon {
+  @include flex-cross-stretch;
+  height: 32px;
+  width: 32px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.quote-tweet__action-name {
+  margin-left: 4px;
+}
+
+.quote-tweet__reply {
+  @include quote-tweet-action;
+  color: $color-action-blue;
+}
+
+.quote-tweet__retweet {
+  @include quote-tweet-action;
+  color: $color-action-green;
+}
+
+.quote-tweet__like {
+  @include quote-tweet-action;
+  color: $color-action-red;
+}

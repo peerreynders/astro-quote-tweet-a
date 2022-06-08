@@ -1,0 +1,5 @@
+package.json
+package-lock.json
+*.md
+src/data/**/*.json
+src/data/**/*.mjs

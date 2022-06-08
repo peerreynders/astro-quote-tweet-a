@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "noEmit": true,
+     "lib": ["es2015", "es2017", "es2020.intl"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "src/data"]
+}

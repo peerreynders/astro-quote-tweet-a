@@ -1,0 +1,27 @@
+---
+import { tweetInfo, prepareContent, makeActions, makeDatetime } from '../lib/tweet-info';
+import QuoteTweet from './QuoteTweet.astro';
+import QuoteTweetFallback from './QuoteTweetFallback.astro';
+
+export type Props = {
+  id: string;
+};
+
+const { id } = Astro.props as Props;
+const info = tweetInfo(id);
+---
+{
+  typeof info !== 'undefined' ? (
+    <QuoteTweet
+      id={id}
+      user={info.users[info.userId]}
+      media={info.media && info.media.length ? info.media[0] : undefined}
+      href={info.href}
+      created={makeDatetime(info.created)}
+      actions={makeActions(info.id)}
+      set:html={prepareContent(info)}
+      />
+  ) : (
+    <QuoteTweetFallback id={id} />
+  )
+}

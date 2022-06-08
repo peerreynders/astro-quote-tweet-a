@@ -1,0 +1,13 @@
+@use '../settings/colors' as clr;
+
+.wrapper {
+  margin-top: 2rem;
+  padding: 2rem 3rem;
+  max-width: 85ch;
+  background-color: #eaf3ff;
+  border-radius: 6px;
+}
+
+.wrapper > * {
+  background-color: clr.$primary-light;
+}
